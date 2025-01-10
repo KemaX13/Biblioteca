@@ -23,6 +23,8 @@ public class Book {
     private long isbn;
     private String description;
     private String genre;
+    private String cover;
+
 
     @OneToMany(mappedBy = "book", cascade = CascadeType.ALL, orphanRemoval = true)
     @JsonIgnore
@@ -34,5 +36,9 @@ public class Book {
         this.isbn = isbn;
         this.description = description;
         this.genre = genre;
+        this.cover = cover;
+    }
+
+    public Book(String title, String author, String description, String genre, String cover) {
     }
 }

@@ -47,7 +47,7 @@ public class BookService {
     }
 
     // Agregar libros
-    public List<Book> addBooks(List<Book> newBooks) {
+    public List<Book> addBooks(Book newBooks) {
         return bookRepository.saveAll(newBooks);
     }
 
