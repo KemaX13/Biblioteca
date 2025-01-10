@@ -32,7 +32,6 @@ public class Member {
     @JsonFormat(pattern = "dd-MM-yyyy HH'h'")
     private Timestamp registrationDate;
 
-
     @Column(name = "Estado", columnDefinition = "tinyint(1) default 1")
     @JsonProperty("Estado")
     @JsonSerialize(using = ActiveStatusSerializer.class)

@@ -1,20 +1,22 @@
 package com.example.proyecto_biblioteca.controller;
 
+import com.example.proyecto_biblioteca.dto.dtoMember.MemberDTORequest;
+import com.example.proyecto_biblioteca.dto.dtoMember.MemberDTOResponse;
+import com.example.proyecto_biblioteca.dto.dtoMember.MemberMapper;
 import com.example.proyecto_biblioteca.model.Member;
+import com.example.proyecto_biblioteca.service.LoanService;
 import com.example.proyecto_biblioteca.service.MemberService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Optional;
 
 @RestController
 public class MemberController {
-
     private final MemberService memberService;
 
-    public MemberController(MemberService memberService) {
+    public MemberController(MemberService memberService, LoanService loanService) {
         this.memberService = memberService;
     }
 
@@ -38,11 +40,14 @@ public class MemberController {
                 .orElseGet(() -> new ResponseEntity<>(HttpStatus.NOT_FOUND));
     }
 
-    // Crear miembros
+    // Crear miembro
     @PostMapping("/members")
-    public ResponseEntity<List<Member>> createMembers(@RequestBody List<Member> newMembers) {
-        List<Member> savedMembers = memberService.addMembers(newMembers);
-        return new ResponseEntity<>(savedMembers, HttpStatus.CREATED);
+    public ResponseEntity<MemberDTOResponse> createMembers(@RequestBody MemberDTORequest memberDTORequest) {
+        Member newMember = MemberMapper.dtoToEntity(memberDTORequest);
+        Member createdMember = memberService.addMember(newMember);
+        MemberDTOResponse newMemberDTO = MemberMapper.entityToDTO(createdMember);
+
+        return new ResponseEntity<>(newMemberDTO, HttpStatus.CREATED);
     }
 
     // Actualizar miembros
