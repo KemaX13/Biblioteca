@@ -1,10 +1,10 @@
-package com.example.proyecto_biblioteca;
+package com.example.biblioteca_back;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class ProyectoBibliotecaApplicationTests {
+class BibliotecaBackApplicationTests {
 
 	@Test
 	void contextLoads() {

@@ -1,4 +1,4 @@
-package com.example.proyecto_biblioteca.model;
+package com.example.biblioteca_back.model;
 
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.databind.JsonSerializer;

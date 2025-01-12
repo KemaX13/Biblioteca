@@ -1,4 +1,4 @@
-package com.example.proyecto_biblioteca.model;
+package com.example.biblioteca_back.model;
 
 import jakarta.persistence.*;
 import lombok.Getter;

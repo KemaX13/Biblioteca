@@ -1,6 +1,6 @@
-package com.example.proyecto_biblioteca.repository;
+package com.example.biblioteca_back.repository;
 
-import com.example.proyecto_biblioteca.model.Loan;
+import com.example.biblioteca_back.model.Loan;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;

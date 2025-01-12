@@ -1,10 +1,9 @@
-package com.example.proyecto_biblioteca.model;
+package com.example.biblioteca_back.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 import java.util.List;
 

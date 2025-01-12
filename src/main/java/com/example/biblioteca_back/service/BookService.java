@@ -1,7 +1,7 @@
-package com.example.proyecto_biblioteca.service;
+package com.example.biblioteca_back.service;
 
-import com.example.proyecto_biblioteca.model.Book;
-import com.example.proyecto_biblioteca.repository.BookRepository;
+import com.example.biblioteca_back.model.Book;
+import com.example.biblioteca_back.repository.BookRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -33,7 +33,6 @@ public class BookService {
         return bookRepository.findByTitleIgnoreCase(title);
     }
 
-
     public List<Book> findBooksByAuthor(String author) {
         return bookRepository.findByAuthorContainingIgnoreCase(author);
     }
@@ -46,13 +45,13 @@ public class BookService {
         return bookRepository.findById(id);
     }
 
-    // Agregar libros
-    public List<Book> addBooks(Book newBooks) {
-        return bookRepository.saveAll(newBooks);
+    // Agregar libro
+    public Book addBooks(Book newBook) {
+        return bookRepository.save(newBook); // Guardamos un solo libro
     }
 
     // Actualizar libros
-    public Optional<Object> updatedBook(int id, Book updatedBook) {
+    public Optional<Book> updatedBook(int id, Book updatedBook) {
         Optional<Book> foundBook = bookRepository.findById(id);
 
         if (foundBook.isPresent()) {
@@ -74,6 +73,4 @@ public class BookService {
     public void deleteBooksById(List<Integer> ids) {
         bookRepository.deleteAllById(ids);
     }
-
-
 }

@@ -1,11 +1,11 @@
-package com.example.proyecto_biblioteca.controller;
+package com.example.biblioteca_back.controller;
 
-import com.example.proyecto_biblioteca.dto.BookDTO;
-import com.example.proyecto_biblioteca.dto.BookMapper;
-import com.example.proyecto_biblioteca.exception.BookCreationException;
-import com.example.proyecto_biblioteca.exception.BookNotFoundException;
-import com.example.proyecto_biblioteca.model.Book;
-import com.example.proyecto_biblioteca.service.BookService;
+import com.example.biblioteca_back.dto.BookDTO;
+import com.example.biblioteca_back.dto.BookMapper;
+import com.example.biblioteca_back.exception.BookCreationException;
+import com.example.biblioteca_back.exception.BookNotFoundException;
+import com.example.biblioteca_back.model.Book;
+import com.example.biblioteca_back.service.BookService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

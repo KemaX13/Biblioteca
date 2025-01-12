@@ -1,13 +1,13 @@
-package com.example.proyecto_biblioteca;
+package com.example.biblioteca_back;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class ProyectoBibliotecaApplication {
+public class BibliotecaBackApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(ProyectoBibliotecaApplication.class, args);
+		SpringApplication.run(BibliotecaBackApplication.class, args);
 	}
 
 }

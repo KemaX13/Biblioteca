@@ -1,11 +1,11 @@
-package com.example.proyecto_biblioteca.service;
+package com.example.biblioteca_back.service;
 
-import com.example.proyecto_biblioteca.model.Book;
-import com.example.proyecto_biblioteca.model.Loan;
-import com.example.proyecto_biblioteca.model.Member;
-import com.example.proyecto_biblioteca.repository.BookRepository;
-import com.example.proyecto_biblioteca.repository.LoanRepository;
-import com.example.proyecto_biblioteca.repository.MemberRepository;
+import com.example.biblioteca_back.model.Book;
+import com.example.biblioteca_back.model.Loan;
+import com.example.biblioteca_back.model.Member;
+import com.example.biblioteca_back.repository.BookRepository;
+import com.example.biblioteca_back.repository.LoanRepository;
+import com.example.biblioteca_back.repository.MemberRepository;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;

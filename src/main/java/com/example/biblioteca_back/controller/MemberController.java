@@ -1,13 +1,12 @@
-package com.example.proyecto_biblioteca.controller;
+package com.example.biblioteca_back.controller;
 
-import com.example.proyecto_biblioteca.model.Member;
-import com.example.proyecto_biblioteca.service.MemberService;
+import com.example.biblioteca_back.model.Member;
+import com.example.biblioteca_back.service.MemberService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Optional;
 
 @RestController
 public class MemberController {

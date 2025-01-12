@@ -1,4 +1,4 @@
-package com.example.proyecto_biblioteca.dto;
+package com.example.biblioteca_back.dto;
 
 public record BookDTO(
         String title,

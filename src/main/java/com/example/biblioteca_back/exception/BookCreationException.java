@@ -1,4 +1,4 @@
-package com.example.proyecto_biblioteca.exception;
+package com.example.biblioteca_back.exception;
 
 public class BookCreationException extends Throwable {
     public BookCreationException(String message) {

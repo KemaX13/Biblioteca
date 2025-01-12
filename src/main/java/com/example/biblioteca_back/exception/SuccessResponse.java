@@ -1,5 +1,5 @@
 
-package com.example.proyecto_biblioteca.exception;
+package com.example.biblioteca_back.exception;
 
 public class SuccessResponse<T> {
     private String message;

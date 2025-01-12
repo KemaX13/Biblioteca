@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.example</groupId>
-	<artifactId>proyecto-biblioteca</artifactId>
+	<artifactId>biblioteca_back</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>proyecto-biblioteca</name>
+	<name>biblioteca_back</name>
 	<description>Proyecto de biblioteca con Springboot</description>
 	<url/>
 	<licenses>
