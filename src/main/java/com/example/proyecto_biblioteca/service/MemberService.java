@@ -29,9 +29,8 @@ public class MemberService {
     }
 
     // Agregar miembros
-    public List<Member> addMembers(List<Member> newMembers){
-        memberRepository.saveAll(newMembers);
-        return newMembers;
+    public Member addMember(Member newMember) {
+        return memberRepository.save(newMember);
     }
 
     // Actualizar miembros

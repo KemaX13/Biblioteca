@@ -12,9 +12,7 @@ import java.time.LocalDate;
 @Getter
 @Setter
 @NoArgsConstructor
-
 public class Loan {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
@@ -30,13 +28,11 @@ public class Loan {
     private LocalDate loanDate;
     private LocalDate returnDate;
 
-
     public Loan(Member member, Book book, LocalDate loanDate, LocalDate returnDate) {
         this.member = member;
         this.book = book;
         this.loanDate = loanDate;
         this.returnDate = returnDate;
     }
-
 }
 
