@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+@RequestMapping("/members")
 public class MemberController {
     private final MemberService memberService;
 
@@ -21,19 +22,19 @@ public class MemberController {
     }
 
     // Encontrar miembros
-    @GetMapping("/members")
+    @GetMapping
     public List<Member> getAllMembers() {
         return memberService.getAll();
     }
 
-    @GetMapping("/members/{id}")
+    @GetMapping("/{id}")
     public ResponseEntity<Member> findMemberById(@PathVariable int id) {
         return memberService.findMember(id)
                 .map(member -> new ResponseEntity<>(member, HttpStatus.FOUND))
                 .orElseGet(() -> new ResponseEntity<>(HttpStatus.NOT_FOUND));
     }
 
-    @GetMapping("/members/name/{name}")
+    @GetMapping("/name/{name}")
     public ResponseEntity<Member> findMemberByName(@PathVariable String name) {
         return memberService.findMember(name)
                 .map(member -> new ResponseEntity<>(member, HttpStatus.FOUND))
@@ -41,7 +42,7 @@ public class MemberController {
     }
 
     // Crear miembro
-    @PostMapping("/members")
+    @PostMapping
     public ResponseEntity<MemberDTOResponse> createMembers(@RequestBody MemberDTORequest memberDTORequest) {
         Member newMember = MemberMapper.dtoToEntity(memberDTORequest);
         Member createdMember = memberService.addMember(newMember);
@@ -51,7 +52,7 @@ public class MemberController {
     }
 
     // Actualizar miembros
-    @PutMapping("/members/{id}")
+    @PutMapping("/{id}")
     public ResponseEntity<Member> updateMember(@PathVariable int id, @RequestBody Member member) {
         return memberService.findMember(id)
                 .map(foundMember -> {
@@ -62,7 +63,7 @@ public class MemberController {
     }
 
     // Eliminar miembros
-    @DeleteMapping("/members")
+    @DeleteMapping
     public ResponseEntity<Void> deleteMembersById(@RequestBody List<Integer> id) {
         memberService.deleteMembersById(id);
         return new ResponseEntity<>(HttpStatus.OK);

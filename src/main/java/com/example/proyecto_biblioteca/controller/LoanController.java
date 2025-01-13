@@ -1,8 +1,16 @@
 package com.example.proyecto_biblioteca.controller;
 
+import com.example.proyecto_biblioteca.dto.dtoLoan.LoanDTORequest;
+import com.example.proyecto_biblioteca.dto.dtoLoan.LoanDTOResponse;
+import com.example.proyecto_biblioteca.dto.dtoLoan.LoanMapper;
+import com.example.proyecto_biblioteca.dto.dtoMember.MemberDTOResponse;
+import com.example.proyecto_biblioteca.dto.dtoMember.MemberMapper;
 import com.example.proyecto_biblioteca.model.Loan;
+import com.example.proyecto_biblioteca.model.Member;
 import com.example.proyecto_biblioteca.service.LoanService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -31,10 +39,13 @@ public class LoanController {
         }
     }
 
-
-
     @PostMapping("/create")
-    public Loan createLoan(@RequestParam int memberId, @RequestParam int bookId) {
+    public Loan createLoan(@RequestParam LoanDTORequest loanDTORequest, @RequestParam Loan loan, @RequestParam int memberId, @RequestParam int bookId) {
+//        Loan newLoan = LoanMapper.dtoToEntity(loanDTORequest, loan);
+//        Loan createdLoan = loanService.createLoan(newLoan);
+//        LoanDTOResponse newLoanDTO = LoanMapper.entityToDTO(createdLoan);
+//
+//        return new ResponseEntity<>(newLoanDTO, HttpStatus.CREATED);
         return loanService.createLoan(memberId, bookId);
     }
 
