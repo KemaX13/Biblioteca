@@ -1,5 +1,6 @@
 package com.example.proyecto_biblioteca.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -22,9 +23,12 @@ public class Book {
     private long isbn;
     private String description;
     private String genre;
+    private String cover;
+
 
     @OneToMany(mappedBy = "book", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Loan> loans; // Relación OneToMany con la clase Loan
+    @JsonIgnore
+    private List<Loan> loans;
 
     public Book(String author, String title, String description, long isbn, String genre) {
         this.title = title;
@@ -32,5 +36,9 @@ public class Book {
         this.isbn = isbn;
         this.description = description;
         this.genre = genre;
+        this.cover = cover;
+    }
+
+    public Book(String title, String author, String description, String genre, String cover) {
     }
 }
