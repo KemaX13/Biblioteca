@@ -1,5 +1,8 @@
 package com.example.proyecto_biblioteca.controller;
 
+import com.example.proyecto_biblioteca.dto.BookDTO;
+import com.example.proyecto_biblioteca.dto.BookMapper;
+import com.example.proyecto_biblioteca.exception.BookCreationException;
 import com.example.proyecto_biblioteca.exception.BookNotFoundException;
 import com.example.proyecto_biblioteca.model.Book;
 import com.example.proyecto_biblioteca.service.BookService;
@@ -65,10 +68,18 @@ public class BookController {
 
     // Crear nuevos libros
     @PostMapping
-    public ResponseEntity<List<Book>> createBooks(@RequestBody List<Book> newBooks) {
-        List<Book> savedBooks = bookService.addBooks(newBooks);
-        return new ResponseEntity<>(savedBooks, HttpStatus.CREATED);
+    public ResponseEntity<BookDTO> createBooks(@RequestBody BookDTO bookDTO) throws BookCreationException {
+        try {
+        Book newBook = BookMapper.dtoEntity(bookDTO);
+
+        Book savedBooks = (Book) bookService.addBooks(newBook);
+        BookDTO newBookDTO = BookMapper.entityToDTO(savedBooks);
+        return new ResponseEntity<>(newBookDTO, HttpStatus.CREATED);
+    } catch (Exception e){
+            throw new BookCreationException("Invalid product data: " + e.getMessage());
+        }
     }
+
 
     // Actualizar libros
     @PutMapping("/{id}")
