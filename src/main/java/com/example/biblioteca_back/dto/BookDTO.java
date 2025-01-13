@@ -6,6 +6,5 @@ public record BookDTO(
         String description,
         String genre,
         String cover
-)
-{
-}
+) {}
+

@@ -17,27 +17,35 @@ public class Book {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+
     private String title;
     private String author;
+
+    @Column(unique = true)
     private long isbn;
+
     private String description;
     private String genre;
     private String cover;
-
 
     @OneToMany(mappedBy = "book", cascade = CascadeType.ALL, orphanRemoval = true)
     @JsonIgnore
     private List<Loan> loans;
 
-    public Book(String author, String title, String description, long isbn, String genre) {
+    public Book(String author, String title, String description, String genre, String cover) {
+        this.title = title;
+        this.author = author;
+        this.description = description;
+        this.genre = genre;
+        this.cover = cover;
+    }
+
+    public Book(String author, String title, String description, long isbn, String genre, String cover) {
         this.title = title;
         this.author = author;
         this.isbn = isbn;
         this.description = description;
         this.genre = genre;
         this.cover = cover;
-    }
-
-    public Book(String title, String author, String description, String genre, String cover) {
     }
 }

@@ -24,7 +24,7 @@ public class BookService {
     public List<Book> getBooksWithoutDescription() {
         List<Book> books = bookRepository.findAll();
         for (Book book : books) {
-            book.setDescription(null);
+            book.setDescription(null); // Establecer la descripción a null
         }
         return books;
     }
@@ -47,7 +47,7 @@ public class BookService {
 
     // Agregar libro
     public Book addBooks(Book newBook) {
-        return bookRepository.save(newBook); // Guardamos un solo libro
+        return bookRepository.save(newBook);
     }
 
     // Actualizar libros
@@ -62,6 +62,7 @@ public class BookService {
             existingBook.setIsbn(updatedBook.getIsbn());
             existingBook.setDescription(updatedBook.getDescription());
             existingBook.setGenre(updatedBook.getGenre());
+            existingBook.setCover(updatedBook.getCover());
 
             return Optional.of(bookRepository.save(existingBook));
         }

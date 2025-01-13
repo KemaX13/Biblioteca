@@ -72,8 +72,9 @@ public class BookController {
         try {
         Book newBook = BookMapper.dtoEntity(bookDTO);
 
-        Book savedBooks = (Book) bookService.addBooks(newBook);
-        BookDTO newBookDTO = BookMapper.entityToDTO(savedBooks);
+            Book savedBooks = bookService.addBooks(newBook);
+
+            BookDTO newBookDTO = BookMapper.entityToDTO(savedBooks);
         return new ResponseEntity<>(newBookDTO, HttpStatus.CREATED);
     } catch (Exception e){
             throw new BookCreationException("Invalid product data: " + e.getMessage());
